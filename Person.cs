@@ -31,7 +31,7 @@ public class Person
 
     public static List<Person> LoadJson()
     {
-        var json = File.ReadAllText("randomPeople.json");
+        var json = File.ReadAllText("C:\\Users\\lucie\\Documents\\Intro-HtmlCss\\canvasOppgaver\\Lucia2\\ProsjektUkeSantasList\\randomPeople.json");
 
         var people = JsonSerializer.Deserialize<List<Person>>(json);
         if (people == null)

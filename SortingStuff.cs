@@ -16,14 +16,13 @@ namespace ProsjektUkeSantasList
         {
 
             //variables
-            string BadList = "badList";
-            string GoodList = "goodList";
             var people = Person.LoadJson();
+            int peoplePoints = 0;
 
 
             foreach (var person in people)
             {
-                int peoplePoints = 0;
+                peoplePoints = 0;
 
                 // toilet paper
                 if (person.ToiletPaperOutward == true)
@@ -34,19 +33,28 @@ namespace ProsjektUkeSantasList
                 {
                     peoplePoints -= 10;
                 }
+
                 person.Points = peoplePoints;
                 Console.WriteLine($"{person.Name}: {person.Points}");
             }
 
-            if (person.Points >= 10)
+            foreach (var person in people)
             {
-                Console.WriteLine($"{BadList}:\n{person.Name}: {person.Points}");
-            }
-            else
-            {
-                Console.WriteLine($"\n{GoodList}:\n{person.Name}: {person.Points}");
+                if (person.Points <= 10)
+                {
+                    Console.WriteLine($"\n{BadList}:\n{person.Name}: {person.Points}");
+                }
+                else
+                {
+                    Console.WriteLine($"\n{GoodList}:\n{person.Name}: {person.Points}");
 
+                }
+
+                Console.WriteLine($"{BadList}");
+                Console.WriteLine($"{GoodList}");
             }
+
+
         }
     }
 }
