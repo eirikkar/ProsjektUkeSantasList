@@ -36,6 +36,7 @@ namespace ProsjektUkeSantasList
             var musicGenre = people.MusicGenres;
             var home = people.HomeAdress;
             var car = people.CarModel;
+            var name = people.Name;
 
             //toilet paper
             if (toiletpaper == true)
@@ -97,8 +98,6 @@ namespace ProsjektUkeSantasList
                 peoplePoints -= 30;
             }
         }
-
-
 
     }
 
