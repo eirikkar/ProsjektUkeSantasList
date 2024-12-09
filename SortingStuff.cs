@@ -10,6 +10,12 @@ namespace ProsjektUkeSantasList
     public class SortingStuff
     {
         Person person = new Person();
+        GoodAndBadList goodAndBadList = new()
+        {
+            BadList = new List<string>(),
+            GoodList = new List<string>()
+
+        };
 
         //adding points to people.
         public void AddingPoints()
@@ -38,21 +44,31 @@ namespace ProsjektUkeSantasList
                 Console.WriteLine($"{person.Name}: {person.Points}");
             }
 
-            foreach (var person in people)
+
+            foreach (var person in person.Name)
             {
                 if (person.Points <= 10)
                 {
-                    Console.WriteLine($"\n{BadList}:\n{person.Name}: {person.Points}");
+                    goodAndBadList.BadList.Add(person.Name);
                 }
                 else
                 {
-                    Console.WriteLine($"\n{GoodList}:\n{person.Name}: {person.Points}");
+                    goodAndBadList.GoodList.Add(person.Name);
 
                 }
 
-                Console.WriteLine($"{BadList}");
-                Console.WriteLine($"{GoodList}");
             }
+            foreach (var i in goodAndBadList.BadList)
+            {
+                Console.WriteLine($"\nBadList: {i}");
+            }
+
+            foreach (var b in goodAndBadList.GoodList)
+            {
+                Console.WriteLine($"\nGoodList {b}");
+            }
+            // Console.WriteLine($"\n{goodAndBadList.BadList}");
+            // Console.WriteLine($"\n{goodAndBadList.GoodList}");
 
 
         }
