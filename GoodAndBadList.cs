@@ -1,28 +1,48 @@
 using System.Text.Json;
-public class GoodAndBadList
+using System.Text.Json.Serialization;
 
+public class GoodAndBadList
 {
     public List<string> GoodList { get; set; }
     public List<string> BadList { get; set; }
-
 }
+
 public class Person
 {
-   public string? Id { get; set; }
-   public string? Name { get; set; }
-   public bool? ToiletPaperOutward { get; set; }
-   public bool? DonatesToCharity { get; set; }
-   public bool? WashesHands { get; set; }
-   public List<string>? MusicGenres { get; set; }
-   public string? HomeAdress { get; set; }
-   public string? CarModel { get; set; }
+    [JsonPropertyName("id")]
+    public string? Id { get; set; }
 
+    [JsonPropertyName("name")]
+    public string? Name { get; set; }
 
+    [JsonPropertyName("toiletPaperOutward")]
+    public bool? ToiletPaperOutward { get; set; }
 
+    [JsonPropertyName("donatesToCharity")]
+    public bool? DonatesToCharity { get; set; }
+
+    [JsonPropertyName("washesHands")]
+    public bool? WashesHands { get; set; }
+
+    [JsonPropertyName("musicGenres")]
+    public List<string>? MusicGenres { get; set; }
+
+    [JsonPropertyName("homeAdress")]
+    public string? HomeAdress { get; set; }
+
+    [JsonPropertyName("carModel")]
+    public string? CarModel { get; set; }
 
     public static List<Person> LoadJson()
     {
         var json = File.ReadAllText("randomPeople.json");
-        return JsonSerializer.Deserialize<List<Person>>(json);
+
+        var people = JsonSerializer.Deserialize<List<Person>>(json);
+        if (people == null)
+        {
+            throw new Exception("Fail");
+        }
+        Console.WriteLine(people.Count);
+        return people;
     }
 }

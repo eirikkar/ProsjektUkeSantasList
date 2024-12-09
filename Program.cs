@@ -5,12 +5,11 @@ class Program
     static void Main(string[] args)
     {
         Person person = new();
-        List<Person> people = Person.LoadJson();
+        var people = Person.LoadJson();
 
-        foreach (var p in people)
+        foreach (var persons in people)
         {
-            Console.WriteLine(p.Name);
-        }  
-
+            Console.WriteLine(persons.Name);
+        }
     }
 }
