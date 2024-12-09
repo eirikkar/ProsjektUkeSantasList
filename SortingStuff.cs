@@ -10,93 +10,88 @@ namespace ProsjektUkeSantasList
     public class SortingStuff
     {
         Person person = new Person();
-
-        public void readJson()
-        {
-            //I want to create a point system to decide if they go to good or bad.
-            //added people class
-            // trying to read json file
-            string filePath = "randomPeople.json";
-            string readStuff = File.ReadAllText(filePath);
-            Console.WriteLine(readStuff);
-        }
-
         //adding points to people.
         public void AddingPoints()
         {
-            //declaring varibles
-            var peoplePoints = 0;
+            //found the path to the json then reads the json file
+            string filePath = "randomPeople.json";
+            string data = File.ReadAllText(filePath);
 
-            var toiletpaper = person.ToiletPaperOutward;
-            var donation = person.DonatesToCharity;
-            var washingHands = person.WashesHands;
-            var musicGenre = person.MusicGenres;
-            var home = person.HomeAdress;
-            var car = person.CarModel;
-            var id = person.Id;
+            //converts string to object
+            List<Person> people = JsonSerializer.Deserialize<List<Person>>(data);
 
-            //toilet paper
-            if (toiletpaper == true)
+            foreach (var person in people)
             {
-                peoplePoints += 10;
-            }
-            else
-            {
-                peoplePoints -= 10;
+                int peoplePoints = 0;
+
+                // toilet paper
+                if (person.ToiletPaperOutward == true)
+                {
+                    peoplePoints += 10;
+                }
+                else
+                {
+                    peoplePoints -= 10;
+                }
+
+                // //donation
+                // if (donation == true)
+                // {
+                //     peoplePoints += 30;
+                // }
+                // else
+                // {
+                //     peoplePoints -= 30;
+                // }
+
+                // //washes hands
+                // if (washingHands == true)
+                // {
+                //     peoplePoints += 50;
+                // }
+                // else
+                // {
+                //     peoplePoints -= 50;
+                // }
+
+                // music genres
+                // if (musicGenre.Contains("J-Pop")
+                //     || musicGenre.Contains("Country")
+                //     || musicGenre.Contains("Electric")
+                // )
+                // {
+                //     peoplePoints += 20;
+                // }
+                // else
+                // {
+                //     peoplePoints -= 20;
+                // }
+
+                //homeadress
+                // if (home.Contains("A")
+                // || home.Contains("B"))
+                // {
+                //     peoplePoints += 20;
+                // }
+                // else
+                // {
+                //     peoplePoints -= 20;
+                // }
+
+                // if (car.Contains("Nissan") || car.Contains("Toyota") || car.Contains("Volvo"))
+                // {
+                //     peoplePoints += 30;
+                // }
+                // else
+                // {
+                //     peoplePoints -= 30;
+                // }
+
+                person.Points = peoplePoints;
+                Console.WriteLine($"{person.Name}: {person.Points}");
             }
 
-            //donation
-            if (donation == true)
-            {
-                peoplePoints += 30;
-            }
-            else
-            {
-                peoplePoints -= 30;
-            }
 
-            //washes hands
-            if (washingHands == true)
-            {
-                peoplePoints += 50;
-            }
-            else
-            {
-                peoplePoints -= 50;
-            }
-
-            // music genres
-            if (
-                musicGenre.Contains("Jpop")
-                || musicGenre.Contains("Country")
-                || musicGenre.Contains("Electric")
-            )
-            {
-                peoplePoints += 20;
-            }
-            else
-            {
-                peoplePoints -= 20;
-            }
-
-            //homeadress
-            if (home.Contains("A") || home.Contains("B"))
-            {
-                peoplePoints += 20;
-            }
-            else
-            {
-                peoplePoints -= 20;
-            }
-
-            if (car.Contains("Nissan") || car.Contains("Toyota") || car.Contains("Volvo"))
-            {
-                peoplePoints += 30;
-            }
-            else
-            {
-                peoplePoints -= 30;
-            }
         }
     }
 }

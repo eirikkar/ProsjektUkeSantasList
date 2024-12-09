@@ -27,6 +27,8 @@ public class Person
     [JsonPropertyName("carModel")]
     public string? CarModel { get; set; }
 
+    public int Points { get; set; }
+
     public static List<Person> LoadJson()
     {
         var json = File.ReadAllText("randomPeople.json");
