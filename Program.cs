@@ -4,6 +4,12 @@ class Program
 {
     static void Main(string[] args)
     {
-        Console.WriteLine("Hello, World!");
+        Person person = new();
+        var people = Person.LoadJson();
+
+        foreach (var persons in people)
+        {
+            Console.WriteLine(persons.Name);
+        }
     }
 }
