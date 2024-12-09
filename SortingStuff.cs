@@ -10,22 +10,22 @@ namespace ProsjektUkeSantasList
     public class SortingStuff
     {
         Person person = new Person();
-        GoodAndBadList goodAndBadList = new()
-        {
-            GoodList = new List<string> { "good kids" },
-            BadList = new List<string> { "bad kids" }
 
-        };
         //adding points to people.
         public void AddingPoints()
         {
+
+            //variables
+            int peoplePoints = 0;
+            string BadList = "badList";
+            string GoodList = "goodList";
+
             //found the path to the json then reads the json file
             string filePath = "randomPeople.json";
             string data = File.ReadAllText(filePath);
 
             //converts string to object
             List<Person> people = JsonSerializer.Deserialize<List<Person>>(data);
-            int peoplePoints = 0;
 
             foreach (var person in people)
             {
@@ -93,22 +93,22 @@ namespace ProsjektUkeSantasList
                 //     peoplePoints -= 30;
                 // }
 
-                // person.Points = peoplePoints;
-                // Console.WriteLine($"{person.Name}: {person.Points}");
-
-                if (peoplePoints >= 10)
-                {
-                    goodAndBadList.BadList.Add(person.Name);
-                }
-                else
-                {
-                    goodAndBadList.GoodList.Add(person.Name);
-                }
-
-                Console.WriteLine("Good List: " + string.Join(", ", goodAndBadList.GoodList));
-                Console.WriteLine("\n\nBad List: " + string.Join(", ", goodAndBadList.BadList));
+                person.Points = peoplePoints;
             }
 
+
+            {
+
+            }
+            if (person.Points >= 10)
+            {
+                Console.WriteLine($"{BadList}:\n{person.Name}: {person.Points}");
+            }
+            else
+            {
+                Console.WriteLine($"\n{GoodList}:\n{person.Name}: {person.Points}");
+
+            }
         }
     }
 }
