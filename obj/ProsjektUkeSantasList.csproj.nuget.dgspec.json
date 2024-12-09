@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "/home/eirik/Workspace/ProsjektUkeSantasList/ProsjektUkeSantasList.csproj": {}
+    "/home/eirik/code/ProsjektUkeSantasList/ProsjektUkeSantasList.csproj": {}
   },
   "projects": {
-    "/home/eirik/Workspace/ProsjektUkeSantasList/ProsjektUkeSantasList.csproj": {
+    "/home/eirik/code/ProsjektUkeSantasList/ProsjektUkeSantasList.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "/home/eirik/Workspace/ProsjektUkeSantasList/ProsjektUkeSantasList.csproj",
+        "projectUniqueName": "/home/eirik/code/ProsjektUkeSantasList/ProsjektUkeSantasList.csproj",
         "projectName": "ProsjektUkeSantasList",
-        "projectPath": "/home/eirik/Workspace/ProsjektUkeSantasList/ProsjektUkeSantasList.csproj",
+        "projectPath": "/home/eirik/code/ProsjektUkeSantasList/ProsjektUkeSantasList.csproj",
         "packagesPath": "/home/eirik/.nuget/packages/",
-        "outputPath": "/home/eirik/Workspace/ProsjektUkeSantasList/obj/",
+        "outputPath": "/home/eirik/code/ProsjektUkeSantasList/obj/",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "/home/eirik/.nuget/NuGet/NuGet.Config"
@@ -20,7 +20,6 @@
           "net9.0"
         ],
         "sources": {
-          "/usr/lib/dotnet/library-packs": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
@@ -37,7 +36,7 @@
         "restoreAuditProperties": {
           "enableAudit": "true",
           "auditLevel": "low",
-          "auditMode": "all"
+          "auditMode": "direct"
         },
         "SdkAnalysisLevel": "9.0.100"
       },
@@ -60,7 +59,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "/usr/lib/dotnet/sdk/9.0.100/PortableRuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "/home/eirik/dotnet/sdk/9.0.101/PortableRuntimeIdentifierGraph.json"
         }
       }
     }

@@ -7,10 +7,10 @@ using System.Threading.Tasks;
 
 namespace ProsjektUkeSantasList
 {
-
     public class SortingStuff
     {
         People people = new People();
+
         public void readJson()
         {
             //I want to create a point system to decide if they go to good or bad.
@@ -19,15 +19,12 @@ namespace ProsjektUkeSantasList
             string filePath = "randomPeople.json";
             string readStuff = File.ReadAllText(filePath);
             Console.WriteLine(readStuff);
-
         }
-
-
 
         //adding points to people.
         public void AddingPoints()
         {
-            //declaring varibles 
+            //declaring varibles
             var peoplePoints = 0;
 
             var toiletpaper = people.ToiletPaperOutward;
@@ -69,7 +66,11 @@ namespace ProsjektUkeSantasList
             }
 
             // music genres
-            if (musicGenre.Contains("Jpop") || musicGenre.Contains("Country") || musicGenre.Contains("Electric"))
+            if (
+                musicGenre.Contains("Jpop")
+                || musicGenre.Contains("Country")
+                || musicGenre.Contains("Electric")
+            )
             {
                 peoplePoints += 20;
             }
@@ -78,8 +79,7 @@ namespace ProsjektUkeSantasList
                 peoplePoints -= 20;
             }
 
-
-            //homeadress 
+            //homeadress
             if (home.Contains("A") || home.Contains("B"))
             {
                 peoplePoints += 20;
@@ -98,7 +98,5 @@ namespace ProsjektUkeSantasList
                 peoplePoints -= 30;
             }
         }
-
     }
-
 }
