@@ -9,7 +9,7 @@ namespace ProsjektUkeSantasList
 {
     public class SortingStuff
     {
-        People people = new People();
+        Person person = new Person();
 
         public void readJson()
         {
@@ -27,13 +27,13 @@ namespace ProsjektUkeSantasList
             //declaring varibles
             var peoplePoints = 0;
 
-            var toiletpaper = people.ToiletPaperOutward;
-            var donation = people.DonatesToCharity;
-            var washingHands = people.WashesHands;
-            var musicGenre = people.MusicGenres;
-            var home = people.HomeAdress;
-            var car = people.CarModel;
-            var name = people.Name;
+            var toiletpaper = person.ToiletPaperOutward;
+            var donation = person.DonatesToCharity;
+            var washingHands = person.WashesHands;
+            var musicGenre = person.MusicGenres;
+            var home = person.HomeAdress;
+            var car = person.CarModel;
+            var id = person.Id;
 
             //toilet paper
             if (toiletpaper == true)
