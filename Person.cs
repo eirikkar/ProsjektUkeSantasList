@@ -36,7 +36,6 @@ public class Person
         {
             throw new Exception("Fail");
         }
-        Console.WriteLine(people.Count);
         return people;
     }
 }
