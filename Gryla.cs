@@ -1,15 +1,22 @@
 public class Gryla
 {
+    /// <summary>
+    /// Gryla spise, nam nam nam nam
+    /// </summary>
+    /// <param name="badpeople"></param>
     public void EatPerson(List<Person> badpeople)
     {
-        badpeople = Person.LoadJson();
-        int percent = (badpeople.Count * 10) / 100;
+        // Create a new random object
         Random random = new Random();
-        for (int i = 0; i < percent; i++)
+        // Loop over the badlist and delete a random person if the number is 10
+        for (int i = 0; i < badpeople.Count; i++)
         {
-            int index = random.Next(badpeople.Count);
-            Console.WriteLine($"Gryla spiste {badpeople[index].Name}");
-            badpeople.RemoveAt(index);
+            int eat = random.Next(1, 11);
+            if (eat == 10)
+            {
+                Console.WriteLine($"Gryla spiste {badpeople[i].Name}");
+                badpeople.RemoveAt(i);
+            }
         }
     }
 }
