@@ -1,23 +1,15 @@
 public class Gryla
 {
-    private readonly Person _person;
-
-    public Gryla(Person person)
+    public void EatPerson(List<Person> badpeople)
     {
-        _person = person;
-    }
-
-    public string EatPerson()
-    {
-        var people = Person.LoadJson();
-        int percent = (people.Count * 10) / 100;
+        badpeople = Person.LoadJson();
+        int percent = (badpeople.Count * 10) / 100;
         Random random = new Random();
         for (int i = 0; i < percent; i++)
         {
-            int index = random.Next(i);
-            people.RemoveAt(index);
-            return $"Gryla spiste {people[index].Name}";
+            int index = random.Next(badpeople.Count);
+            Console.WriteLine($"Gryla spiste {badpeople[index].Name}");
+            badpeople.RemoveAt(index);
         }
-        return "Gryla spiste ingen";
     }
 }
