@@ -34,15 +34,76 @@ namespace ProsjektUkeSantasList
                 {
                     peoplePoints -= 10;
                 }
+
+                //Donating to charity
+                if (person.DonatesToCharity == true)
+                {
+                    peoplePoints += 50;
+                }
+                else
+                {
+                    peoplePoints -= 50;
+                }
+
+                //washes hands
+                if (person.WashesHands == true)
+                {
+                    peoplePoints += 20;
+                }
+                else
+                {
+                    peoplePoints -= 20;
+                }
+
+                //music genres
+                if (person.MusicGenres.Contains("J-pop") || person.MusicGenres.Contains("Folk") || person.MusicGenres.Contains("Blues"))
+                {
+                    peoplePoints += 50;
+                }
+                else
+                {
+                    peoplePoints -= 50;
+                }
+
+                //homeadress 
+                if (person.HomeAdress.Contains("A") || person.HomeAdress.Contains("74") || person.HomeAdress.Contains("B"))
+                {
+                    peoplePoints += 15;
+                }
+                else
+                {
+                    peoplePoints -= 15;
+                }
+
+                //car model 
+                switch (person.CarModel)
+                {
+                    case "Toyota":
+                        peoplePoints += 20;
+                        break;
+
+                    //sosse bil
+                    case "BMW":
+                        peoplePoints -= -50;
+                        break;
+
+                    case "Tesla":
+                        peoplePoints -= 50;
+                        break;
+
+                    default:
+                        peoplePoints += 20;
+                        break;
+                }
                 person.Points = peoplePoints;
-                Console.WriteLine($"{person.Name}: {person.Points}");
+                // Console.WriteLine($"{person.Name}: {person.Points}");
             }
 
             //decides if the people in the json file should go on the good list
             //or bad list based on their points
             foreach (var person in people)
             {
-                if (person.Points < 10)
+                if (person.Points < 0)
                 {
                     goodAndBadList.BadList.Add(person);
                 }
@@ -52,16 +113,18 @@ namespace ProsjektUkeSantasList
                 }
             }
 
+            Console.WriteLine("\nBadlist:");
             //prints ever child in the bad list
             foreach (var i in goodAndBadList.BadList)
             {
-                Console.WriteLine($"\nBadList: {i.Name}");
+                Console.WriteLine($"{i.Name}: {i.Points}");
             }
 
+            Console.WriteLine("\n\nGoodList:");
             //prints every child in the good list
             foreach (var b in goodAndBadList.GoodList)
             {
-                Console.WriteLine($"\nGoodList {b.Name}");
+                Console.WriteLine($"{b.Name}: {b.Points}");
             }
         }
     }
