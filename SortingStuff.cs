@@ -105,10 +105,9 @@ namespace ProsjektUkeSantasList
                         break;
                 }
                 person.Points = peoplePoints;
-                // Console.WriteLine($"{person.Name}: {person.Points}");
             }
 
-            //decides if the people in the json file should go on the good list
+            //decides if a person in the json file should go on the good list
             //or bad list based on their points
             foreach (var person in people)
             {
