@@ -9,6 +9,7 @@ namespace ProsjektUkeSantasList
 {
     public class SortingStuff
     {
+        //impliments other classes needed to make the logic work
         Person person = new Person();
         public GoodAndBadList goodAndBadList =
             new() { BadList = new List<Person>(), GoodList = new List<Person>() };
@@ -16,7 +17,7 @@ namespace ProsjektUkeSantasList
         //adding points to people.
         public void AddingPoints()
         {
-            //varible to call the readjson function from model class
+            //varible to call the read json function from model class
             var people = Person.LoadJson();
 
             //loops through each person object in the json file
@@ -79,7 +80,7 @@ namespace ProsjektUkeSantasList
                 switch (person.CarModel)
                 {
                     case "Toyota":
-                        peoplePoints += 20;
+                        peoplePoints += 25;
                         break;
 
                     //sosse bil
