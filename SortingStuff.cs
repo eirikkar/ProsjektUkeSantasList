@@ -114,14 +114,16 @@ namespace ProsjektUkeSantasList
             }
 
             Console.WriteLine("\nBadlist:");
-            //prints ever child in the bad list
+
+            //prints every person in the bad list
             foreach (var i in goodAndBadList.BadList)
             {
-                Console.WriteLine($"{i.Name}: {i.Points}");
+                Console.WriteLine($"{i.Name}: You got a total of {i.Points} points so you get coal");
             }
 
             Console.WriteLine("\n\nGoodList:");
-            //prints every child in the good list
+
+            //prints every person in the good list
             foreach (var b in goodAndBadList.GoodList)
             {
                 Console.WriteLine($"{b.Name}: {b.Points}");
