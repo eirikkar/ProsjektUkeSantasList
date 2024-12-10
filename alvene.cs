@@ -17,4 +17,6 @@ public class Alvene
     public string? Spesialisering { get; set; }
 
     public string? Ansvar { get; set; }
+
+    public string? Gift { get; set; }
 }
