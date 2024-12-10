@@ -6,7 +6,7 @@ class Program
     {
         Person person = new();
         var people = Person.LoadJson();
-        Gryla gryla = new(person);
-        gryla.EatPerson();
+        Gryla gryla = new();
+        gryla.EatPerson(people);
     }
 }
