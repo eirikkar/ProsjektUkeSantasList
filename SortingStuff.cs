@@ -11,8 +11,25 @@ namespace ProsjektUkeSantasList
     {
         //impliments other classes needed to make the logic work
         Person person = new Person();
+        Random random = new Random();
+        Alvene alvene = new Alvene();
+
         public GoodAndBadList goodAndBadList =
             new() { BadList = new List<Person>(), GoodList = new List<Person>() };
+
+        public AleveneList aleveneLista =
+        new() { alvenes = new List<Alvene>() };
+
+        public void elfList()
+        {
+            aleveneLista.alvenes.Add(new Alvene { Name = "Askasleikir", Spesialisering = "elektronik", Ansvar = "kjøpe online", Gift = "Flashbackinator" });
+            aleveneLista.alvenes.Add(new Alvene { Name = "Pottasleikir", Spesialisering = "keramikk", Ansvar = "at gavenne ser bra ut med sloife", Gift = "Aincent greek pot" });
+            aleveneLista.alvenes.Add(new Alvene { Name = "Bankerinie", Spesialisering = "søm", Ansvar = "at skjærebrett julegaver", Gift = "dragon leather robe" });
+            aleveneLista.alvenes.Add(new Alvene { Name = "Sledda", Spesialisering = "trearbeid", Ansvar = "at sleden virker bra", Gift = "vikingskip" });
+            aleveneLista.alvenes.Add(new Alvene { Name = "Smieknusser", Spesialisering = "smie", Ansvar = "for reinsdyrene", Gift = "neckalce that tells you the weather" });
+
+        }
+
 
         //adding points to people.
         public void AddingPoints()
@@ -106,6 +123,7 @@ namespace ProsjektUkeSantasList
                 }
                 person.Points = peoplePoints;
             }
+
             //decides if a person in the json file should go on the good list
             //or bad list based on their points
             foreach (var person in people)
@@ -119,6 +137,8 @@ namespace ProsjektUkeSantasList
                     goodAndBadList.GoodList.Add(person);
                 }
             }
+
+            //assigns an elf randomly to a child.
 
             Console.WriteLine("\nBadlist:");
 
@@ -134,7 +154,42 @@ namespace ProsjektUkeSantasList
             //prints every person in the good list
             foreach (var b in goodAndBadList.GoodList)
             {
-                Console.WriteLine($"{b.Name}: {b.Points}");
+                int elf = random.Next(0, 6);
+                if (elf == 1)
+                {
+                    alvene.Name = "Askasleikir";
+                    alvene.Spesialisering = "Elektronikk";
+                    alvene.Gift = "Flashbackinatior";
+                    Console.WriteLine($"{b.Name}: you got {b.Points}: here is your gift: {alvene.Gift}");
+                }
+                if (elf == 2)
+                {
+                    alvene.Name = "Pottasleikir";
+                    alvene.Spesialisering = "keramikk";
+                    alvene.Gift = "Aincent greek pot";
+                    Console.WriteLine($"{b.Name}: you got {b.Points}: here is your gift: {alvene.Gift}");
+                }
+                if (elf == 3)
+                {
+                    alvene.Name = "Bankerinie";
+                    alvene.Spesialisering = "søm";
+                    alvene.Gift = "dragon leather robe";
+                    Console.WriteLine($"{b.Name}: you got {b.Points}: here is your gift: {alvene.Gift}");
+                }
+                if (elf == 4)
+                {
+                    alvene.Name = "Sledda";
+                    alvene.Spesialisering = "Trearbeid";
+                    alvene.Gift = "TheXtremeSled200";
+                    Console.WriteLine($"{b.Name}: you got {b.Points}: here is your gift: {alvene.Gift}");
+                }
+                if (elf == 5)
+                {
+                    alvene.Name = "Smieknuser";
+                    alvene.Spesialisering = "smie";
+                    alvene.Gift = "Necklace that tells the weather";
+                    Console.WriteLine($"{b.Name}: you got {b.Points} here is your gift: {alvene.Gift}");
+                }
             }
         }
     }
