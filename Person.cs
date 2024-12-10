@@ -1,6 +1,9 @@
 using System.Text.Json;
 using System.Text.Json.Serialization;
 
+/// <summary>
+/// Person class
+/// </summary>
 public class Person
 {
     [JsonPropertyName("id")]
@@ -27,16 +30,22 @@ public class Person
     [JsonPropertyName("carModel")]
     public string? CarModel { get; set; }
 
+    public int Points { get; set; }
+  
+    /// <summary>
+    /// LoadJson method that takes randomPeople.json and deserializes it into a list of Person objects.
+    /// </summary>
+    /// <returns>List of persons</returns>
+    /// <exception cref="Exception"></exception>
     public static List<Person> LoadJson()
     {
-        var json = File.ReadAllText("randomPeople.json");
+        var json = File.ReadAllText("C:\\Users\\lucie\\Documents\\Intro-HtmlCss\\canvasOppgaver\\Lucia2\\ProsjektUkeSantasList\\randomPeople.json");
 
         var people = JsonSerializer.Deserialize<List<Person>>(json);
         if (people == null)
         {
             throw new Exception("Fail");
         }
-        Console.WriteLine(people.Count);
         return people;
     }
 }
