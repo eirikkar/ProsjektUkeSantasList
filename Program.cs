@@ -8,5 +8,12 @@ class Program
         var people = Person.LoadJson();
         Gryla gryla = new(person);
         gryla.EatPerson();
+
+        SortingStuff sortingStuff = new();
+
+        sortingStuff.AddingPoints();
+
+
+
     }
 }

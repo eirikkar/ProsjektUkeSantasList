@@ -9,94 +9,71 @@ namespace ProsjektUkeSantasList
 {
     public class SortingStuff
     {
-        People people = new People();
-
-        public void readJson()
+        Person person = new Person();
+        GoodAndBadList goodAndBadList = new()
         {
-            //I want to create a point system to decide if they go to good or bad.
-            //added people class
-            // trying to read json file
-            string filePath = "randomPeople.json";
-            string readStuff = File.ReadAllText(filePath);
-            Console.WriteLine(readStuff);
-        }
+            BadList = new List<string>(),
+            GoodList = new List<string>()
+
+        };
 
         //adding points to people.
         public void AddingPoints()
         {
-            //declaring varibles
-            var peoplePoints = 0;
 
-            var toiletpaper = people.ToiletPaperOutward;
-            var donation = people.DonatesToCharity;
-            var washingHands = people.WashesHands;
-            var musicGenre = people.MusicGenres;
-            var home = people.HomeAdress;
-            var car = people.CarModel;
-            var name = people.Name;
+            //varible to call the readjson function from model class
+            var people = Person.LoadJson();
 
-            //toilet paper
-            if (toiletpaper == true)
+            //loops through each person object in the json file
+            //and assigns them points based on their variables
+            foreach (var person in people.ToList())
             {
-                peoplePoints += 10;
-            }
-            else
-            {
-                peoplePoints -= 10;
-            }
+                int peoplePoints = 0;
 
-            //donation
-            if (donation == true)
-            {
-                peoplePoints += 30;
-            }
-            else
-            {
-                peoplePoints -= 30;
+                // toilet paper
+                if (person.ToiletPaperOutward == true)
+                {
+                    peoplePoints += 10;
+                }
+                else
+                {
+                    peoplePoints -= 10;
+                }
+                person.Points = peoplePoints;
+                Console.WriteLine($"{person.Name}: {person.Points}");
             }
 
-            //washes hands
-            if (washingHands == true)
+
+            //decides if the people in the json file should go on the good list
+            //or bad list based on their points
+            foreach (var person in people)
             {
-                peoplePoints += 50;
-            }
-            else
-            {
-                peoplePoints -= 50;
+                if (person.Points < 10)
+                {
+                    goodAndBadList.BadList.Add(person.Name);
+                }
+                else
+                {
+                    goodAndBadList.GoodList.Add(person.Name);
+
+                }
+
             }
 
-            // music genres
-            if (
-                musicGenre.Contains("Jpop")
-                || musicGenre.Contains("Country")
-                || musicGenre.Contains("Electric")
-            )
+            //prints ever child in the bad list
+            foreach (var i in goodAndBadList.BadList)
             {
-                peoplePoints += 20;
-            }
-            else
-            {
-                peoplePoints -= 20;
+                Console.WriteLine($"\nBadList: {i}");
             }
 
-            //homeadress
-            if (home.Contains("A") || home.Contains("B"))
+
+            //prints every child in the good list
+            foreach (var b in goodAndBadList.GoodList)
             {
-                peoplePoints += 20;
-            }
-            else
-            {
-                peoplePoints -= 20;
+                Console.WriteLine($"\nGoodList {b}");
             }
 
-            if (car.Contains("Nissan") || car.Contains("Toyota") || car.Contains("Volvo"))
-            {
-                peoplePoints += 30;
-            }
-            else
-            {
-                peoplePoints -= 30;
-            }
+
         }
     }
 }

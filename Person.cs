@@ -27,9 +27,11 @@ public class Person
     [JsonPropertyName("carModel")]
     public string? CarModel { get; set; }
 
+    public int Points { get; set; }
+
     public static List<Person> LoadJson()
     {
-        var json = File.ReadAllText("randomPeople.json");
+        var json = File.ReadAllText("C:\\Users\\lucie\\Documents\\Intro-HtmlCss\\canvasOppgaver\\Lucia2\\ProsjektUkeSantasList\\randomPeople.json");
 
         var people = JsonSerializer.Deserialize<List<Person>>(json);
         if (people == null)
