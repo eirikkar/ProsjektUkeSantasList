@@ -12,34 +12,9 @@ using System.Text.Json.Serialization;
 /// </summary>
 public class Alvene
 {
-    [JsonPropertyName("id")]
-    public string? Id { get; set; }
-
-    [JsonPropertyName("name")]
     public string? Name { get; set; }
 
-
-    [JsonPropertyName("spesialisering")]
     public string? Spesialisering { get; set; }
 
-    [JsonPropertyName("ansvar")]
     public string? Ansvar { get; set; }
-
-  
-    /// <summary>
-    /// LoadJson method that takes randomPeople.json and deserializes it into a list of Alvene objects.
-    /// </summary>
-    /// <returns>List of Alvene</returns>
-    /// <exception cref="Exception"></exception>
-    public static List<Alvene> LoadJson()
-    {
-        var json = File.ReadAllText("C:\\Users\.json");
-
-        var people = JsonSerializer.Deserialize<List<Alvene>>(json);
-        if (people == null)
-        {
-            throw new Exception("Fail");
-        }
-        return people;
-    }
 }
