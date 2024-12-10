@@ -31,7 +31,7 @@ public class Person
     public string? CarModel { get; set; }
 
     public int Points { get; set; }
-  
+
     /// <summary>
     /// LoadJson method that takes randomPeople.json and deserializes it into a list of Person objects.
     /// </summary>
@@ -39,7 +39,7 @@ public class Person
     /// <exception cref="Exception"></exception>
     public static List<Person> LoadJson()
     {
-        var json = File.ReadAllText("C:\\Users\\lucie\\Documents\\Intro-HtmlCss\\canvasOppgaver\\Lucia2\\ProsjektUkeSantasList\\randomPeople.json");
+        var json = File.ReadAllText("randomPeople.json");
 
         var people = JsonSerializer.Deserialize<List<Person>>(json);
         if (people == null)

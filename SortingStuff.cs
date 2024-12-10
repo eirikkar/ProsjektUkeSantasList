@@ -10,17 +10,12 @@ namespace ProsjektUkeSantasList
     public class SortingStuff
     {
         Person person = new Person();
-        GoodAndBadList goodAndBadList = new()
-        {
-            BadList = new List<string>(),
-            GoodList = new List<string>()
-
-        };
+        public GoodAndBadList goodAndBadList =
+            new() { BadList = new List<Person>(), GoodList = new List<Person>() };
 
         //adding points to people.
         public void AddingPoints()
         {
-
             //varible to call the readjson function from model class
             var people = Person.LoadJson();
 
@@ -43,37 +38,31 @@ namespace ProsjektUkeSantasList
                 Console.WriteLine($"{person.Name}: {person.Points}");
             }
 
-
             //decides if the people in the json file should go on the good list
             //or bad list based on their points
             foreach (var person in people)
             {
                 if (person.Points < 10)
                 {
-                    goodAndBadList.BadList.Add(person.Name);
+                    goodAndBadList.BadList.Add(person);
                 }
                 else
                 {
-                    goodAndBadList.GoodList.Add(person.Name);
-
+                    goodAndBadList.GoodList.Add(person);
                 }
-
             }
 
             //prints ever child in the bad list
             foreach (var i in goodAndBadList.BadList)
             {
-                Console.WriteLine($"\nBadList: {i}");
+                Console.WriteLine($"\nBadList: {i.Name}");
             }
-
 
             //prints every child in the good list
             foreach (var b in goodAndBadList.GoodList)
             {
-                Console.WriteLine($"\nGoodList {b}");
+                Console.WriteLine($"\nGoodList {b.Name}");
             }
-
-
         }
     }
 }
