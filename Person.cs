@@ -1,6 +1,9 @@
 using System.Text.Json;
 using System.Text.Json.Serialization;
 
+/// <summary>
+/// Person class
+/// </summary>
 public class Person
 {
     [JsonPropertyName("id")]
@@ -26,6 +29,12 @@ public class Person
 
     [JsonPropertyName("carModel")]
     public string? CarModel { get; set; }
+
+    /// <summary>
+    /// LoadJson method that takes randomPeople.json and deserializes it into a list of Person objects.
+    /// </summary>
+    /// <returns>List of persons</returns>
+    /// <exception cref="Exception"></exception>
 
     public static List<Person> LoadJson()
     {
