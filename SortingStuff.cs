@@ -57,6 +57,10 @@ namespace ProsjektUkeSantasList
                 }
 
                 //music genres
+                if (person.MusicGenres == null)
+                {
+                    throw new Exception("Error music genre is null");
+                }
                 if (person.MusicGenres.Contains("J-pop") || person.MusicGenres.Contains("Folk") || person.MusicGenres.Contains("Blues"))
                 {
                     peoplePoints += 50;
@@ -67,6 +71,10 @@ namespace ProsjektUkeSantasList
                 }
 
                 //homeadress 
+                if (person.HomeAdress == null)
+                {
+                    throw new Exception("Error Home adress is null");
+                }
                 if (person.HomeAdress.Contains("A") || person.HomeAdress.Contains("74") || person.HomeAdress.Contains("B"))
                 {
                     peoplePoints += 15;
