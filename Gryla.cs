@@ -6,6 +6,7 @@ public class Gryla
     /// <param name="badpeople"></param>
     public void EatPerson(List<Person> badpeople)
     {
+        Console.WriteLine("\nGryla ate:");
         // Create a new random object
         Random random = new Random();
         // Loop over the badlist and delete a random person if the number is 10
@@ -14,7 +15,7 @@ public class Gryla
             int eat = random.Next(1, 11);
             if (eat == 10)
             {
-                Console.WriteLine($"Gryla spiste {badpeople[i].Name}");
+                Console.WriteLine($"{badpeople[i].Name}");
                 badpeople.RemoveAt(i);
             }
         }
