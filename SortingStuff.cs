@@ -9,6 +9,7 @@ namespace ProsjektUkeSantasList
 {
     public class SortingStuff
     {
+        //impliments other classes needed to make the logic work
         Person person = new Person();
         public GoodAndBadList goodAndBadList =
             new() { BadList = new List<Person>(), GoodList = new List<Person>() };
@@ -16,7 +17,7 @@ namespace ProsjektUkeSantasList
         //adding points to people.
         public void AddingPoints()
         {
-            //varible to call the readjson function from model class
+            //varible to call the read json function from model class
             var people = Person.LoadJson();
 
             //loops through each person object in the json file
@@ -56,6 +57,10 @@ namespace ProsjektUkeSantasList
                 }
 
                 //music genres
+                if (person.MusicGenres == null)
+                {
+                    throw new Exception("Error music genre is null");
+                }
                 if (person.MusicGenres.Contains("J-pop") || person.MusicGenres.Contains("Folk") || person.MusicGenres.Contains("Blues"))
                 {
                     peoplePoints += 50;
@@ -66,6 +71,10 @@ namespace ProsjektUkeSantasList
                 }
 
                 //homeadress 
+                if (person.HomeAdress == null)
+                {
+                    throw new Exception("Error Home adress is null");
+                }
                 if (person.HomeAdress.Contains("A") || person.HomeAdress.Contains("74") || person.HomeAdress.Contains("B"))
                 {
                     peoplePoints += 15;
@@ -79,7 +88,7 @@ namespace ProsjektUkeSantasList
                 switch (person.CarModel)
                 {
                     case "Toyota":
-                        peoplePoints += 20;
+                        peoplePoints += 25;
                         break;
 
                     //sosse bil
@@ -96,10 +105,8 @@ namespace ProsjektUkeSantasList
                         break;
                 }
                 person.Points = peoplePoints;
-                // Console.WriteLine($"{person.Name}: {person.Points}");
             }
-
-            //decides if the people in the json file should go on the good list
+            //decides if a person in the json file should go on the good list
             //or bad list based on their points
             foreach (var person in people)
             {
@@ -114,14 +121,17 @@ namespace ProsjektUkeSantasList
             }
 
             Console.WriteLine("\nBadlist:");
-            //prints ever child in the bad list
+
+            //prints every person in the bad list
             foreach (var i in goodAndBadList.BadList)
             {
-                Console.WriteLine($"{i.Name}: {i.Points}");
+                Console.WriteLine($"{i.Name}: You got a total of {i.Points} points so you get coal");
             }
 
             Console.WriteLine("\n\nGoodList:");
-            //prints every child in the good list
+
+
+            //prints every person in the good list
             foreach (var b in goodAndBadList.GoodList)
             {
                 Console.WriteLine($"{b.Name}: {b.Points}");
