@@ -106,7 +106,6 @@ namespace ProsjektUkeSantasList
                 }
                 person.Points = peoplePoints;
             }
-
             //decides if a person in the json file should go on the good list
             //or bad list based on their points
             foreach (var person in people)
@@ -130,6 +129,7 @@ namespace ProsjektUkeSantasList
             }
 
             Console.WriteLine("\n\nGoodList:");
+
 
             //prints every person in the good list
             foreach (var b in goodAndBadList.GoodList)
