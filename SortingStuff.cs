@@ -21,14 +21,14 @@ namespace ProsjektUkeSantasList
         public void AddingPoints()
         {
 
-            //variables
+            //varible to call the readjson function from model class
             var people = Person.LoadJson();
-            int peoplePoints = 0;
 
-
-            foreach (var person in people)
+            //loops through each person object in the json file
+            //and assigns them points based on their variables
+            foreach (var person in people.ToList())
             {
-                peoplePoints = 0;
+                int peoplePoints = 0;
 
                 // toilet paper
                 if (person.ToiletPaperOutward == true)
@@ -39,15 +39,16 @@ namespace ProsjektUkeSantasList
                 {
                     peoplePoints -= 10;
                 }
-
                 person.Points = peoplePoints;
                 Console.WriteLine($"{person.Name}: {person.Points}");
             }
 
 
-            foreach (var person in person.Name)
+            //decides if the people in the json file should go on the good list
+            //or bad list based on their points
+            foreach (var person in people)
             {
-                if (person.Points <= 10)
+                if (person.Points < 10)
                 {
                     goodAndBadList.BadList.Add(person.Name);
                 }
@@ -58,17 +59,19 @@ namespace ProsjektUkeSantasList
                 }
 
             }
+
+            //prints ever child in the bad list
             foreach (var i in goodAndBadList.BadList)
             {
                 Console.WriteLine($"\nBadList: {i}");
             }
 
+
+            //prints every child in the good list
             foreach (var b in goodAndBadList.GoodList)
             {
                 Console.WriteLine($"\nGoodList {b}");
             }
-            // Console.WriteLine($"\n{goodAndBadList.BadList}");
-            // Console.WriteLine($"\n{goodAndBadList.GoodList}");
 
 
         }
