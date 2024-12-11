@@ -4,8 +4,16 @@ public class Gryla
     /// Gryla spise, nam nam nam nam
     /// </summary>
     /// <param name="badpeople"></param>
-    public void EatPerson(List<Person> badpeople)
+    public void Consequence(List<Person> badpeople)
     {
+        Console.WriteLine("\nBadlist:");
+
+        //prints every person in the bad list
+        foreach (var i in badpeople)
+        {
+            Console.WriteLine($"{i.Name}: You got a total of {i.Points} points so you get coal");
+        }
+
         Console.WriteLine("\nGryla needs her yearly sacrefice so she ate:");
         // Create a new random object
         Random random = new Random();

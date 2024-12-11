@@ -4,10 +4,16 @@
 // Sledda, spesialisering for trearbeid, ansvar at sleden virker bra
 // Smieknuser spesialisering for smie, ansvar for reinsdyrene
 
-
-
-public class AleveneList
+/// <summary>
+/// Alvene class
+/// </summary>
+public class Alvene
 {
-  Alvene alvene = new Alvene();
-  public required List<Alvene> alvenes { get; set; }
+    public string? Name { get; set; }
+
+    public string? Spesialisering { get; set; }
+
+    public string? Ansvar { get; set; }
+
+    public string? Gift { get; set; }
 }
