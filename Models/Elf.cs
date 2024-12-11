@@ -4,9 +4,6 @@
 // Sledda, spesialisering for trearbeid, ansvar at sleden virker bra
 // Smieknuser spesialisering for smie, ansvar for reinsdyrene
 
-using System.Text.Json;
-using System.Text.Json.Serialization;
-
 /// <summary>
 /// Alvene class
 /// </summary>
