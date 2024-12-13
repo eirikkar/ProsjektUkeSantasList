@@ -18,7 +18,6 @@ namespace ProsjektUkeSantasList
             //and assigns them points based on their variables
             foreach (var person in people)
             {
-
                 // toilet paper
                 trueFalse.ToiletPaper(person);
 
@@ -56,7 +55,5 @@ namespace ProsjektUkeSantasList
                 }
             }
         }
-
-        //assigns an elf randomly to a child.
     }
 }
