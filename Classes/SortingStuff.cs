@@ -10,7 +10,8 @@ namespace ProsjektUkeSantasList
         HomeAdress homeAdress = new();
         Cars cars = new();
 
-        //adding points to people.
+        //makes a new list of Person objects, modifies the point varible in every person
+        //object via foreach loop
         public List<Person> AddingPoints(List<Person> people)
         {
             //loops through each person object in the json file
