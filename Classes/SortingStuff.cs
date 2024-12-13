@@ -1,105 +1,40 @@
+using ProsjektUkeSantasList.Ifs;
+
 namespace ProsjektUkeSantasList
 {
     public class SortingStuff
     {
-        //impliments other classes needed to make the logic work
+        //calling the different classes from the ifs folder
+        TrueFalse trueFalse = new();
+        MusicGenres musicGenres = new();
+        HomeAdress homeAdress = new();
+        Cars cars = new();
 
-        //adding points to people.
+        //makes a new list of Person objects, modifies the point varible in every person
+        //object via foreach loop
         public List<Person> AddingPoints(List<Person> people)
         {
             //loops through each person object in the json file
             //and assigns them points based on their variables
             foreach (var person in people)
             {
-                int peoplePoints = 0;
-
                 // toilet paper
-                if (person.ToiletPaperOutward == true)
-                {
-                    peoplePoints += 10;
-                }
-                else
-                {
-                    peoplePoints -= 10;
-                }
+                trueFalse.ToiletPaper(person);
 
                 //Donating to charity
-                if (person.DonatesToCharity == true)
-                {
-                    peoplePoints += 50;
-                }
-                else
-                {
-                    peoplePoints -= 50;
-                }
+                trueFalse.Donating(person);
 
                 //washes hands
-                if (person.WashesHands == true)
-                {
-                    peoplePoints += 20;
-                }
-                else
-                {
-                    peoplePoints -= 20;
-                }
+                trueFalse.Washing(person);
 
                 //music genres
-                if (person.MusicGenres == null)
-                {
-                    throw new Exception("Error music genre is null");
-                }
-                if (
-                    person.MusicGenres.Contains("J-pop")
-                    || person.MusicGenres.Contains("Folk")
-                    || person.MusicGenres.Contains("Blues")
-                )
-                {
-                    peoplePoints += 50;
-                }
-                else
-                {
-                    peoplePoints -= 50;
-                }
+                musicGenres.judgingMusic(person);
 
                 //homeadress
-                if (person.HomeAdress == null)
-                {
-                    throw new Exception("Error Home adress is null");
-                }
-                if (
-                    person.HomeAdress.Contains("A")
-                    || person.HomeAdress.Contains("74")
-                    || person.HomeAdress.Contains("B")
-                )
-                {
-                    peoplePoints += 15;
-                }
-                else
-                {
-                    peoplePoints -= 15;
-                }
+                homeAdress.StalkingUwU(person);
 
                 //car model
-                switch (person.CarModel)
-                {
-                    case "Toyota":
-                        peoplePoints += 25;
-                        break;
-
-                    //sosse bil
-                    case "BMW":
-                        peoplePoints -= -50;
-                        break;
-
-                    case "Tesla":
-                        peoplePoints -= 50;
-                        break;
-
-                    default:
-                        peoplePoints += 20;
-                        break;
-                }
-                person.Points = peoplePoints;
+                cars.shittyOrCoolCar(person);
             }
             return people;
         }
@@ -120,7 +55,5 @@ namespace ProsjektUkeSantasList
                 }
             }
         }
-
-        //assigns an elf randomly to a child.
     }
 }

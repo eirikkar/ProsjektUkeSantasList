@@ -6,7 +6,7 @@ public class Gryla
     /// <param name="badpeople"></param>
     public void Consequence(List<Person> badpeople)
     {
-        Console.WriteLine("\nBadlist:");
+        Console.WriteLine("\n\nBadlist:");
 
         //prints every person in the bad list
         foreach (var i in badpeople)
