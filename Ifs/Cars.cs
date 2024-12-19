@@ -1,8 +1,3 @@
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-
 namespace ProsjektUkeSantasList.Ifs
 {
     public class Cars
@@ -15,7 +10,11 @@ namespace ProsjektUkeSantasList.Ifs
             }
             else
             {
-                if (person.CarModel.Contains("Toyota") || person.CarModel.Contains("Jaguar") || person.CarModel.Contains("Volkswagen"))
+                if (
+                    person.CarModel.Contains("Toyota")
+                    || person.CarModel.Contains("Jaguar")
+                    || person.CarModel.Contains("Volkswagen")
+                )
                 {
                     person.Points += 45;
                 }
@@ -27,7 +26,6 @@ namespace ProsjektUkeSantasList.Ifs
                 {
                     person.Points += 40;
                 }
-
             }
         }
     }

@@ -1,8 +1,3 @@
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-
 namespace ProsjektUkeSantasList.Ifs
 {
     public class MusicGenres
@@ -25,7 +20,6 @@ namespace ProsjektUkeSantasList.Ifs
             {
                 person.Points -= 50;
             }
-
         }
     }
 }
