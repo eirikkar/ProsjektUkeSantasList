@@ -17,7 +17,7 @@ class Program
         };
 
         //Calling LoadJson method as people
-        var people = Person.LoadJson();
+        var people = person.LoadJson();
 
         //Main logic
         people = sortingStuff.AddingPoints(people);
