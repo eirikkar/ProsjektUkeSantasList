@@ -37,7 +37,7 @@ public class Person
     /// </summary>
     /// <returns>List of persons</returns>
     /// <exception cref="Exception"></exception>
-    public static List<Person> LoadJson()
+    public List<Person> LoadJson()
     {
         var json = File.ReadAllText("randomPeople.json");
 
